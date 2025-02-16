@@ -3,7 +3,7 @@ export default ({ env }) => ({
     secret: env('ADMIN_JWT_SECRET'),
   },
   apiToken: {
-    salt: env('d6BLKSBtnVoTo/Ttf11B1w=='),
+    salt: env('API_TOKEN_SALT', 'd6BLKSBtnVoTo/Ttf11B1w=='), // ✅ Corrected
   },
   transfer: {
     token: {
