@@ -11,16 +11,16 @@ module.exports = [
             "data:", 
             "blob:", 
             "*.cloudinary.com", 
-            "https://your-strapi-deployment.com",  // Add deployed Strapi URL
-            "https://your-frontend.vercel.app",    // Add deployed Next.js frontend URL
+            "https://backend-strapi-8.onrender.com",  // ✅ Your deployed Strapi URL
+            "https://your-frontend.vercel.app",      // ✅ Your frontend URL
           ],
           "media-src": [
             "'self'", 
             "data:", 
             "blob:", 
             "*.cloudinary.com", 
-            "https://your-strapi-deployment.com",  // Add deployed Strapi URL
-            "https://your-frontend.vercel.app",    // Add deployed Next.js frontend URL
+            "https://backend-strapi-8.onrender.com",  // ✅ Your deployed Strapi URL
+            "https://your-frontend.vercel.app",      // ✅ Your frontend URL
           ],
         },
       },
@@ -30,8 +30,8 @@ module.exports = [
     name: "strapi::cors",
     config: {
       origin: [
-        "https://your-frontend.vercel.app",  // Deployed frontend URL
-        "https://your-strapi-deployment.com", // Deployed Strapi backend URL
+        "https://frontend-project-6gvm.vercel.app/",  // ✅ Update with frontend URL
+        "https://backend-strapi-8.onrender.com", // ✅ Update with backend URL
       ],
       methods: ["GET", "POST", "PUT", "DELETE"],
       allowedHeaders: ["Content-Type", "Authorization"],
