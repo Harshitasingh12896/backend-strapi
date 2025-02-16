@@ -11,16 +11,16 @@ module.exports = [
             "data:", 
             "blob:", 
             "*.cloudinary.com", 
-            "http://localhost:1337",  // Allow localhost for images
-            "http://localhost:3000",  // Allow your Next.js frontend (if running locally on port 3000)
+            "https://your-strapi-deployment.com",  // Add deployed Strapi URL
+            "https://your-frontend.vercel.app",    // Add deployed Next.js frontend URL
           ],
           "media-src": [
             "'self'", 
             "data:", 
             "blob:", 
             "*.cloudinary.com", 
-            "http://localhost:1337",  // Allow localhost for media
-            "http://localhost:3000",  // Allow your Next.js frontend (if running locally on port 3000)
+            "https://your-strapi-deployment.com",  // Add deployed Strapi URL
+            "https://your-frontend.vercel.app",    // Add deployed Next.js frontend URL
           ],
         },
       },
@@ -30,11 +30,11 @@ module.exports = [
     name: "strapi::cors",
     config: {
       origin: [
-        "http://localhost:3000", // Allow your local frontend (Next.js running on port 3000)
-        "http://localhost:1337", // Allow Strapi's local backend if needed
+        "https://your-frontend.vercel.app",  // Deployed frontend URL
+        "https://your-strapi-deployment.com", // Deployed Strapi backend URL
       ],
-      methods: ["GET", "POST", "PUT", "DELETE"], // Allow the HTTP methods your app will use
-      allowedHeaders: ["Content-Type", "Authorization"], // Allow necessary headers like Authorization
+      methods: ["GET", "POST", "PUT", "DELETE"],
+      allowedHeaders: ["Content-Type", "Authorization"],
     },
   },
   "strapi::query",
