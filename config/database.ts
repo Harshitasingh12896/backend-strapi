@@ -9,7 +9,8 @@ module.exports = ({ env }) => ({
       password: env('DATABASE_PASSWORD', 'Harshita@2003'), // Corrected line
       ssl: env.bool('DATABASE_SSL', false),
     },
-    pool: { min: 2, max: 10 }, // Prevent max connections issue
+    pool: { min: 0, max: env.int('DATABASE_POOL_MAX', 3) }
+ // Prevent max connections issue
   },
 });
 
