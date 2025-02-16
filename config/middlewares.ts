@@ -4,23 +4,26 @@ module.exports = [
     name: "strapi::security",
     config: {
       contentSecurityPolicy: {
+        useDefaults: true,
         directives: {
           "script-src": ["'self'", "https:"],
           "img-src": [
-            "'self'", 
-            "data:", 
-            "blob:", 
-            "*.cloudinary.com", 
+            "'self'",
+            "data:",
+            "blob:",
+            "*.cloudinary.com",
             "https://backend-strapi-8.onrender.com",
-            "http://localhost:3004", // ✅ Allow local frontend
+            "http://localhost:3004",
+            "https://your-frontend.vercel.app",
           ],
           "media-src": [
-            "'self'", 
-            "data:", 
-            "blob:", 
-            "*.cloudinary.com", 
+            "'self'",
+            "data:",
+            "blob:",
+            "*.cloudinary.com",
             "https://backend-strapi-8.onrender.com",
-            "http://localhost:3004", // ✅ Allow local frontend
+            "http://localhost:3004",
+            "https://your-frontend.vercel.app",
           ],
         },
       },
@@ -29,13 +32,11 @@ module.exports = [
   {
     name: "strapi::cors",
     config: {
-      origin: [
-        "http://localhost:3004",  // ✅ Allow local frontend
-        "https://frontend-project-6gvm.vercel.app", // ✅ Allow deployed frontend
-      ],
+      enabled: true,
+      origin: ["http://localhost:3004", "https://your-frontend.vercel.app"],
       methods: ["GET", "POST", "PUT", "DELETE"],
       allowedHeaders: ["Content-Type", "Authorization"],
-      credentials: true, // ✅ Important for cookies or auth
+      credentials: true,
     },
   },
   "strapi::query",
