@@ -4,6 +4,7 @@ module.exports = [
     name: "strapi::security",
     config: {
       contentSecurityPolicy: {
+        useDefaults: true,
         directives: {
           "script-src": ["'self'", "https:"],
           "img-src": [
@@ -22,6 +23,7 @@ module.exports = [
             "https://backend-strapi-8.onrender.com",
             "https://your-frontend.vercel.app",
           ],
+          upgradeInsecureRequests: null, // Allow HTTP & HTTPS
         },
       },
     },
@@ -29,14 +31,11 @@ module.exports = [
   {
     name: "strapi::cors",
     config: {
-      origin: [
-        "https://your-frontend.vercel.app",
-        "https://backend-strapi-8.onrender.com",
-        "http://localhost:3000", // Local development
-      ],
-      methods: ["GET", "POST", "PUT", "DELETE"],
+      enabled: true,
+      origin: ["https://your-frontend.vercel.app"], // Explicitly allow frontend
+      methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
       allowedHeaders: ["Content-Type", "Authorization"],
-      credentials: true, // <-- Add this line
+      credentials: true,
     },
   },
   "strapi::query",
