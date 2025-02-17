@@ -1,4 +1,4 @@
-module.exports = [
+export default [
   "strapi::errors",
   {
     name: "strapi::security",
@@ -12,7 +12,7 @@ module.exports = [
             "blob:",
             "*.cloudinary.com",
             "https://backend-strapi-8.onrender.com",
-            "http://localhost:3006", // ✅ Allow localhost
+            "http://localhost:3007", // ✅ Allow localhost
             "https://your-frontend.vercel.app", // ✅ Allow Vercel frontend
           ],
           "media-src": [
@@ -21,7 +21,7 @@ module.exports = [
             "blob:",
             "*.cloudinary.com",
             "https://backend-strapi-8.onrender.com",
-            "http://localhost:3006", // ✅ Allow localhost
+            "http://localhost:3007", // ✅ Allow localhost
             "https://your-frontend.vercel.app", // ✅ Allow Vercel frontend
           ],
         },
@@ -31,7 +31,7 @@ module.exports = [
   {
     name: "strapi::cors",
     config: {
-      origin: ["http://localhost:3006", "https://your-frontend.vercel.app"], // ✅ Set allowed origins
+      origin: ["http://localhost:3007", "https://your-frontend.vercel.app"], // ✅ Set allowed origins
       methods: ["GET", "POST", "PUT", "DELETE"],
       allowedHeaders: ["Content-Type", "Authorization"],
       credentials: true, // ✅ Allow credentials
