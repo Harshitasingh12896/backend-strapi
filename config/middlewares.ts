@@ -4,7 +4,6 @@ module.exports = [
     name: "strapi::security",
     config: {
       contentSecurityPolicy: {
-        useDefaults: true,
         directives: {
           "script-src": ["'self'", "https:"],
           "img-src": [
@@ -13,7 +12,8 @@ module.exports = [
             "blob:",
             "*.cloudinary.com",
             "https://backend-strapi-8.onrender.com",
-            "https://your-frontend.vercel.app",
+            "http://localhost:3006", // ✅ Allow localhost
+            "https://your-frontend.vercel.app", // ✅ Allow Vercel frontend
           ],
           "media-src": [
             "'self'",
@@ -21,9 +21,9 @@ module.exports = [
             "blob:",
             "*.cloudinary.com",
             "https://backend-strapi-8.onrender.com",
-            "https://your-frontend.vercel.app",
+            "http://localhost:3006", // ✅ Allow localhost
+            "https://your-frontend.vercel.app", // ✅ Allow Vercel frontend
           ],
-          upgradeInsecureRequests: null, // Allow HTTP & HTTPS
         },
       },
     },
@@ -31,11 +31,10 @@ module.exports = [
   {
     name: "strapi::cors",
     config: {
-      enabled: true,
-      origin: ["https://your-frontend.vercel.app"], // Explicitly allow frontend
-      methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+      origin: ["http://localhost:3006", "https://your-frontend.vercel.app"], // ✅ Set allowed origins
+      methods: ["GET", "POST", "PUT", "DELETE"],
       allowedHeaders: ["Content-Type", "Authorization"],
-      credentials: true,
+      credentials: true, // ✅ Allow credentials
     },
   },
   "strapi::query",
