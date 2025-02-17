@@ -12,7 +12,7 @@ export default [
             "blob:",
             "*.cloudinary.com",
             "https://backend-strapi-8.onrender.com",
-            "https://nextjs-project-five-indol.vercel.app", // ✅ Vercel frontend
+            "https://nextjs-project-brnw.vercel.app", // ✅ Vercel frontend
             "http://localhost:3000", // ✅ Allow localhost
           ],
           "media-src": [
@@ -21,7 +21,7 @@ export default [
             "blob:",
             "*.cloudinary.com",
             "https://backend-strapi-8.onrender.com",
-            "https://nextjs-project-five-indol.vercel.app", // ✅ Vercel frontend
+            "https://nextjs-project-brnw.vercel.app", // ✅ Vercel frontend
             "http://localhost:3000", // ✅ Allow localhost
           ],
         },
@@ -32,7 +32,7 @@ export default [
     name: "strapi::cors",
     config: {
       origin: [
-        "https://nextjs-project-five-indol.vercel.app", // ✅ Vercel frontend
+        "https://nextjs-project-brnw.vercel.app/", // ✅ Vercel frontend
         "http://localhost:3000", // ✅ Allow localhost
       ], // ✅ Set allowed origins
       methods: ["GET", "POST", "PUT", "DELETE"],
