@@ -18,7 +18,7 @@ export default ({ env }: { env: any }) => ({
     cors: {
       enabled: true,
       origin: [
-        env('APP_FRONTEND_URL', 'http://localhost:3000'), // Frontend URL
+        env('APP_FRONTEND_URL', 'http://localhost:3001','https://nextjs-project-gmdw-frmrew3ve-harshitas-projects-51e4ee6c.vercel.app'), // Frontend URL
       ],
     },
   },
