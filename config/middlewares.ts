@@ -4,25 +4,31 @@ export default [
     name: "strapi::security",
     config: {
       contentSecurityPolicy: {
+        useDefaults: true,
         directives: {
           "script-src": ["'self'", "https:"],
           "img-src": [
             "'self'",
             "data:",
             "blob:",
+            "https:",
             "*.cloudinary.com",
-            "https://backend-strapi-8.onrender.com",
-            "https://nextjs-project-brnw.vercel.app", // ✅ Vercel frontend
-            "http://localhost:3000", // ✅ Allow localhost
+            "http://localhost:3000",
           ],
           "media-src": [
             "'self'",
             "data:",
             "blob:",
+            "https:",
             "*.cloudinary.com",
-            "https://backend-strapi-8.onrender.com",
-            "https://nextjs-project-brnw.vercel.app", // ✅ Vercel frontend
-            "http://localhost:3000", // ✅ Allow localhost
+            "http://localhost:3000",
+          ],
+          "connect-src": [
+            "'self'",
+            "https:",
+            "*.cloudinary.com",
+            "http://localhost:1337", // ✅ Allow API requests
+            "http://localhost:3000",
           ],
         },
       },
@@ -31,13 +37,14 @@ export default [
   {
     name: "strapi::cors",
     config: {
+      enabled: true, // ✅ Ensure it's enabled
       origin: [
-        "https://nextjs-project-brnw.vercel.app/", // ✅ Vercel frontend
-        "http://localhost:3000", // ✅ Allow localhost
-      ], // ✅ Set allowed origins
-      methods: ["GET", "POST", "PUT", "DELETE"],
+        "http://localhost:3000", // ✅ Allow frontend access
+        "https://your-deployed-frontend.com", // ✅ Add deployed domain here
+      ],
+      methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
       allowedHeaders: ["Content-Type", "Authorization"],
-      credentials: true, // ✅ Allow credentials
+      credentials: true, // ✅ Allow authentication credentials (cookies, sessions)
     },
   },
   "strapi::query",
